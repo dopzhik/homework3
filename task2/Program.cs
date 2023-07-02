@@ -1,34 +1,24 @@
-﻿﻿// 1. Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает последнюю цифру этого числа.
-// 456 -> 6
-// 782 -> 2
-// 918 -> 8
-/// Функция чтения с консоли числа
-/// message - строка приглашения ввода для пользователя
-// Возвращает целое значение, введенное пользователем
+﻿﻿/*Напишите программу, которая принимает на вход координаты двух точек и 
+находит расстояние между ними в 3D пространстве.
+A (3,6,8); B (2,1,-7), -> 15.84
+A (7,-5, 0); B (1,-1,9) -> 11.53*/
 int ReadInt(string message)
 {
-    System.Console.Write(message);              // Выводим в консоль приглашение для ввода
-    string inputedStr = Console.ReadLine();     // Вводим строку с консоли
-    int number = Convert.ToInt32(inputedStr);   // Преобразует строку в целое значение
-    return number;                              // Возвращает из функции значение
+    System.Console.Write(message);              // Подсказка
+    return Convert.ToInt32(Console.ReadLine()); // Преобразование введенной пользователем строки в число
 }
-
-// Объявление функции
-/// Проверка, что число 3-хзначное
-bool Validate3Digits(int number)
-{
-    if (99 < number && number < 1000)   // 99 < number < 1000
-    {
-        return true;    // Проверка прошла успешно
-    }
-    System.Console.WriteLine("Число не трехзначное");    // проверка не прошла
-    return false;
+double Range3D(int x1, int y1, int z1, int x2, int y2, int z2)
+{  
+int rangex = x1 - x2;
+int rangey = y1 - y2;
+int rangez = z1 - z2;
+double range = Math.Sqrt(rangex*rangex + rangey*rangey + rangez*rangez);
+return range;
 }
-
-int num;    // Объявил переменную
-num = ReadInt("Введите число > ");  // Ввод числа
-if (Validate3Digits(num))
-{
-    int lastDigit = num % 10;
-    System.Console.WriteLine($"Последняя цифра числа {num} равна {lastDigit}");
-}
+int x1 = ReadInt("Введите x1 => ");
+int y1 = ReadInt("Введите y1 => ");
+int z1 = ReadInt("Введите z1 => ");
+int x2 = ReadInt("Введите x2 => ");
+int y2 = ReadInt("Введите y2 => ");
+int z2 = ReadInt("Введите z2 => ");
+System.Console.WriteLine($"Расстояние между координатами равно {Range3D(x1, y1, z1, x2, y2, z2)}");
