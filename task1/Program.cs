@@ -24,10 +24,10 @@ if (Validate5Digits(num))
 {    
     if (num / 10000 == num % 10 && (num / 1000) % 10 == (num / 10) % 10)
     {
-        System.Console.WriteLine($"Число {num} - палнидром");
+        System.Console.WriteLine($"Число {num} - палиндром");
     }
     else
     {
-        System.Console.WriteLine($"Число {num} - не палнидром");
+        System.Console.WriteLine($"Число {num} - не палиндром");
     }
 }
