@@ -19,10 +19,21 @@ bool Validate5Digits(int number)
     return false;
      
 }
-int num = ReadInt("Введите пятизначное число => ");
-if (Validate5Digits(num))
-{    
-    if (num / 10000 == num % 10 && (num / 1000) % 10 == (num / 10) % 10)
+int num = ReadInt("Введите число => ");
+int Reverse(int num)
+{
+    int current = 0;
+    int rev = 0;   
+    while (num > 0)
+    {
+    current = num % 10;
+    rev = rev*10 + current;
+    num = num / 10;
+    }
+    return rev;
+}
+int reverse = Reverse(num);
+    if (num == reverse)
     {
         System.Console.WriteLine($"Число {num} - палиндром");
     }
@@ -30,4 +41,3 @@ if (Validate5Digits(num))
     {
         System.Console.WriteLine($"Число {num} - не палиндром");
     }
-}
